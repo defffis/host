@@ -49,7 +49,9 @@ def normalize_hosts(content: str) -> tuple[str, int]:
             continue
         # A HOSTS feed must not override loopback, private, link-local,
         # multicast, reserved or other non-public destinations.
-        if not address.is_global:
+        # Python's is_global also returns True for multicast addresses,
+        # so reject multicast explicitly (IPv4 224/4 and IPv6 ff00::/8).
+        if not address.is_global or address.is_multicast or address.is_reserved:
             rejected += 1
             continue
         ip = str(address)
