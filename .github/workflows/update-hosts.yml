@@ -1,0 +1,47 @@
+name: Update normalized hosts
+
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-hosts.yml'
+      - 'scripts/normalize_hosts.py'
+      - 'tests/test_normalize_hosts.py'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-normalized-hosts
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SOURCE_URL: ${{ vars.SOURCE_URL || 'https://raw.githubusercontent.com/Noktomezo/RussiaFancyLists/main/lists/hosts/comss.hosts' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test parser
+        run: python -m unittest discover -s tests -v
+      - name: Generate hosts
+        run: python scripts/normalize_hosts.py --output comss/hosts
+      - name: Commit only if hosts changed
+        shell: bash
+        run: |
+          git add -- comss/hosts
+          if git diff --cached --quiet --exit-code; then
+            echo 'No changes'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: update normalized hosts'
+          git push
