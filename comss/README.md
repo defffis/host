@@ -1,6 +1,6 @@
 # Normalized Comss hosts
 
-An automatically updated HOSTS file with **exactly one IP hostname pair per line**, preserving multiple IPs for a domain and removing exact duplicate pairs.
+An automatically updated HOSTS file with **exactly one IP hostname pair per line**. Keeps publicly routable IPv4/IPv6 addresses only; preserves multiple public IPs per hostname and removes exact duplicate pairs.
 
 **Raw link:** https://raw.githubusercontent.com/defffis/host/main/comss/hosts
 
@@ -23,9 +23,9 @@ Output:
 
     103.137.248.145 anthropic.com
     103.137.248.145 api.anthropic.com
-    ::1 localhost
-    ::1 ip6-localhost
 
-Comments and malformed entries are dropped. Input must be valid UTF-8, reachable through HTTPS, and 20 MiB or smaller. Exact repeated IP/hostname pairs are removed. Existing output remains unchanged if the download fails or contains zero valid records.
+The loopback mapping is omitted because `::1` is not a publicly routable address.
+
+Comments and malformed entries are dropped. All non-public IPs (loopback, private, link-local, multicast, reserved, etc.), including `127.0.0.1`, `::1`, and `ff02::1`, are excluded automatically. Input must be valid UTF-8, reachable through HTTPS, and 20 MiB or smaller. Exact repeated IP/hostname pairs are removed. Existing output remains unchanged if the download fails or contains zero valid records.
 
 **Security note:** HOSTS entries override DNS resolution for the specified hostnames. Use only a trusted upstream source. This repository republishes upstream addresses and does not verify that destination IPs belong to their respective services.

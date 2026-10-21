@@ -26,8 +26,9 @@ def is_hostname(value: str) -> bool:
 def normalize_hosts(content: str) -> tuple[str, int]:
     """Return normalized file and number of rejected tokens/lines.
 
-    Only remove exact duplicate IP/host pairs. Multiple IPs per hostname
-    are preserved, as are original line/pair order and IPv4/IPv6 entries.
+    Only publicly routable IPs are accepted. Exact duplicate IP/host pairs
+    are removed. Multiple IPs per hostname, input order, and publicly routed
+    IPv4/IPv6 entries are preserved.
     """
     records: list[str] = []
     seen: set[tuple[str, str]] = set()
@@ -42,10 +43,16 @@ def normalize_hosts(content: str) -> tuple[str, int]:
             rejected += 1
             continue
         try:
-            ip = str(ipaddress.ip_address(fields[0]))
+            address = ipaddress.ip_address(fields[0])
         except ValueError:
             rejected += 1
             continue
+        # A HOSTS feed must not override loopback, private, link-local,
+        # multicast, reserved or other non-public destinations.
+        if not address.is_global:
+            rejected += 1
+            continue
+        ip = str(address)
         for token in fields[1:]:
             hostname = token.lower().rstrip(".")
             if not is_hostname(hostname):
