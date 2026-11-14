@@ -94,11 +94,11 @@
 52.222.149.31 ubisoft.com
 199.189.255.234 edgeservices.bing.com
 199.189.255.234 sydney.bing.com
-206.223.251.18 edgeservices.bing.com
-45.114.60.100 sydney.bing.com
+206.223.246.75 sydney.bing.com
+45.114.60.100 edgeservices.bing.com
 199.189.255.234 copilot.microsoft.com
 199.189.255.234 designer.microsoft.com
-206.223.251.18 copilot.microsoft.com
-206.223.251.18 designer.microsoft.com
+45.114.60.100 copilot.microsoft.com
+45.114.60.100 designer.microsoft.com
 199.189.255.234 xsts.auth.xboxlive.com
-45.114.60.100 xsts.auth.xboxlive.com
+206.223.246.75 xsts.auth.xboxlive.com
