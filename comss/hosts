@@ -136,9 +136,9 @@
 199.189.253.237 my.avira.com
 206.223.242.221 avira.com
 206.223.242.221 my.avira.com
-176.12.72.184 edgeservices.bing.com
-176.12.72.184 sydney.bing.com
-45.114.60.100 edgeservices.bing.com
+199.189.255.234 edgeservices.bing.com
+206.223.246.75 edgeservices.bing.com
+206.223.246.75 sydney.bing.com
 45.114.60.100 sydney.bing.com
 199.189.253.237 bitdefender.com
 206.223.242.221 bitdefender.com
@@ -387,7 +387,6 @@
 199.189.253.237 jetbrains.ai
 199.189.253.237 jetbrains.com
 199.189.253.237 plugins.jetbrains.com
-199.189.253.237 www.jetbrains.com
 199.189.253.237 youtrack.jetbrains.com
 206.223.242.221 account.jetbrains.com
 206.223.242.221 api.jetbrains.ai
@@ -396,7 +395,6 @@
 206.223.242.221 jetbrains.ai
 206.223.242.221 jetbrains.com
 206.223.242.221 plugins.jetbrains.com
-206.223.242.221 www.jetbrains.com
 206.223.242.221 youtrack.jetbrains.com
 199.189.253.237 labs.google
 206.223.242.221 labs.google
@@ -418,10 +416,10 @@
 206.223.242.221 www.manus.im
 199.189.253.237 trae-api-sg.mchost.guru
 206.223.242.221 trae-api-sg.mchost.guru
-176.12.72.184 copilot.microsoft.com
-176.12.72.184 designer.microsoft.com
-45.114.60.100 copilot.microsoft.com
-45.114.60.100 designer.microsoft.com
+199.189.255.234 copilot.microsoft.com
+199.189.255.234 designer.microsoft.com
+206.223.246.75 copilot.microsoft.com
+206.223.246.75 designer.microsoft.com
 199.189.253.237 miro.com
 199.189.253.237 www.miro.com
 206.223.242.221 miro.com
@@ -480,8 +478,8 @@
 206.223.242.221 sdmntprpolandcentral.oaiusercontent.com
 206.223.242.221 sdmntprukwest.oaiusercontent.com
 206.223.242.221 www.oaiusercontent.com
-176.12.72.184 ecs.office.com
-45.114.60.100 ecs.office.com
+199.189.255.234 ecs.office.com
+206.223.246.75 ecs.office.com
 199.189.253.237 opal.google
 206.223.242.221 opal.google
 199.189.253.237 android.chat.openai.com
@@ -697,4 +695,4 @@
 206.223.242.221 www.x.ai
 206.223.242.221 x.ai
 206.223.246.75 xsts.auth.xboxlive.com
-206.223.251.18 xsts.auth.xboxlive.com
+45.114.60.100 xsts.auth.xboxlive.com
